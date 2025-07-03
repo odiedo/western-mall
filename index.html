@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Border-Mall - Your Everything Destination</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            overflow-x: hidden;
+            background: #0f172a;
+        }
+
+        /* Header & Navigation */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        .nav-menu a {
+            text-decoration: none;
+            color: #374151;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        .nav-menu a:hover {
+            color: #667eea;
+        }
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s ease;
+        }
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+        .mobile-menu {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: #374151;
+        }
+
+        /* Hero Video Background */
+        .hero-video-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            object-fit: cover;
+            z-index: 0;
+            filter: brightness(0.7) blur(1px);
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: linear-gradient(120deg, rgba(30,41,59,0.7) 60%, rgba(102,126,234,0.3) 100%);
+            z-index: 1;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: none;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .hero-text {
+            color: #fff;
+            text-shadow: 0 4px 32px rgba(0,0,0,0.25);
+        }
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -2px;
+            background: linear-gradient(90deg, #fff 60%, #a5b4fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-subtitle {
+            font-size: 1.35rem;
+            opacity: 0.95;
+            margin-bottom: 2.2rem;
+            line-height: 1.7;
+            color: #e0e7ff;
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 8px 32px rgba(102,126,234,0.18);
+        }
+        .btn-primary {
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            border: none;
+        }
+        .btn-primary:hover {
+            background: linear-gradient(90deg, #764ba2 0%, #667eea 100%);
+            color: #fff;
+        }
+        .btn-secondary {
+            background: rgba(255,255,255,0.12);
+            color: #fff;
+            border: 2px solid #fff;
+        }
+        .btn-secondary:hover {
+            background: #fff;
+            color: #667eea;
+        }
+
+        /* Glassmorphic Service Cards */
+        .hero-visual {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            position: relative;
+        }
+        .service-card {
+            background: rgba(255,255,255,0.13);
+            backdrop-filter: blur(18px);
+            border: 1.5px solid rgba(255,255,255,0.22);
+            border-radius: 22px;
+            padding: 2.2rem 1.2rem 1.7rem 1.2rem;
+            text-align: center;
+            color: #fff;
+            transition: all 0.3s cubic-bezier(.23,1.02,.57,.98);
+            cursor: pointer;
+            box-shadow: 0 8px 32px rgba(102,126,234,0.10);
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: -40px; left: -40px;
+            width: 80px; height: 80px;
+            background: radial-gradient(circle, #a5b4fc55 0%, transparent 80%);
+            z-index: 0;
+            filter: blur(2px);
+        }
+        .service-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            background: rgba(255,255,255,0.22);
+            box-shadow: 0 16px 48px #667eea33;
+        }
+        .service-card i {
+            font-size: 2.7rem;
+            margin-bottom: 1rem;
+            display: block;
+            color: #a5b4fc;
+            filter: drop-shadow(0 2px 8px #667eea55);
+            animation: iconPulse 2.5s infinite;
+        }
+        @keyframes iconPulse {
+            0%,100% { transform: scale(1);}
+            50% { transform: scale(1.13);}
+        }
+        .service-card img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 14px;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            border: 2px solid #fff3;
+        }
+        .service-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.4rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        .service-card p {
+            opacity: 0.92;
+            font-size: 0.97rem;
+            color: #e0e7ff;
+        }
+
+        /* Scroll Down Indicator */
+        .scroll-down-indicator {
+            position: absolute;
+            left: 50%;
+            bottom: 32px;
+            transform: translateX(-50%);
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            opacity: 0.85;
+        }
+        .scroll-down-indicator span {
+            color: #fff;
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+            letter-spacing: 1px;
+        }
+        .scroll-down-indicator i {
+            font-size: 1.7rem;
+            color: #fff;
+            animation: bounceDown 1.2s infinite;
+        }
+        @keyframes bounceDown {
+            0%,100% { transform: translateY(0);}
+            50% { transform: translateY(10px);}
+        }
+
+        /* Services Section */
+        .services {
+            padding: 8rem 2rem;
+            background: #f8fafc;
+        }
+        .services-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+        .section-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #6b7280;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+        .service-item {
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .service-item:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.15);
+        }
+        .service-image {
+            height: 250px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .service-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+        }
+        .service-image i {
+            font-size: 4rem;
+            color: white;
+            position: relative;
+            z-index: 2;
+        }
+        .service-image img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 18px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+            margin-bottom: 1rem;
+        }
+        .service-content {
+            padding: 2.5rem;
+        }
+        .service-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
+        .service-description {
+            color: #6b7280;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+        .service-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        .service-features li {
+            padding: 0.5rem 0;
+            color: #374151;
+            display: flex;
+            align-items: center;
+        }
+        .service-features li i {
+            color: #10b981;
+            margin-right: 0.5rem;
+            font-size: 0.9rem;
+        }
+        .service-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .service-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Ripple effect for service buttons */
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            transform: scale(0);
+            animation: ripple-animate 0.6s linear;
+            pointer-events: none;
+            z-index: 10;
+        }
+        @keyframes ripple-animate {
+            to {
+                transform: scale(2.5);
+                opacity: 0;
+            }
+        }
+
+        /* About Section */
+        .about {
+            background: #fff;
+            padding: 6rem 2rem;
+        }
+
+        /* Statistics Section */
+        .stats {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+        }
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+        .stat-item {
+            text-align: center;
+            color: white;
+        }
+        .stat-number {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .stat-label {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Download Section */
+        /* (uses inline styles for layout and images) */
+
+        /* Contact Section */
+        /* (uses inline styles for layout and form) */
+
+        /* Floating Get App Button */
+        .floating-app-btn {
+            display: none;
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 8px 32px rgba(102,126,234,0.18);
+            z-index: 2000;
+            text-decoration: none;
+            align-items: center;
+            gap: 0.7rem;
+            transition: background 0.3s, transform 0.2s;
+        }
+        .floating-app-btn i {
+            margin-right: 0.5rem;
+        }
+        .floating-app-btn:hover {
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+            transform: translateY(-3px) scale(1.05);
+        }
+
+        /* Footer */
+        .footer {
+            background: #1f2937;
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        .footer-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #667eea;
+        }
+        .footer-section ul {
+            list-style: none;
+        }
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+        .footer-section ul li a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer-section ul li a:hover {
+            color: #667eea;
+        }
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 2rem;
+            text-align: center;
+            color: #9ca3af;
+        }
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+        .social-links a {
+            color: #9ca3af;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        .social-links a:hover {
+            color: #667eea;
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .nav, .footer-container, .services-container, .about > div, .stats-container {
+                max-width: 98vw;
+            }
+            .hero-content {
+                max-width: 98vw;
+            }
+        }
+        @media (max-width: 900px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+                text-align: center;
+                padding: 0 1rem;
+            }
+            .hero-visual {
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+                margin-top: 2rem;
+            }
+            .about > div {
+                flex-direction: column;
+                gap: 2rem;
+            }
+        }
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            .mobile-menu {
+                display: block;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .stat-number {
+                font-size: 2.5rem;
+            }
+            .cta-buttons {
+                justify-content: center;
+            }
+            .btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+            .nav {
+                padding: 1rem;
+            }
+            .services, .stats {
+                padding: 4rem 1rem;
+            }
+            .floating-app-btn {
+                display: flex;
+            }
+            .about > div {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            .about img {
+                max-width: 320px;
+                margin: 0 auto;
+            }
+        }
+        @media (max-width: 600px) {
+            .hero-title { font-size: 2.1rem; }
+            .hero-content { padding: 0 0.5rem; }
+            .hero-visual { grid-template-columns: 1fr; }
+            .service-card { padding: 1.2rem 0.7rem 1.2rem 0.7rem; }
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+            .about > div {
+                padding: 0 0.5rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.4rem;
+            }
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            .service-card {
+                padding: 1rem;
+            }
+            .service-content {
+                padding: 1rem;
+            }
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .about img {
+                max-width: 100%;
+            }
+            .scroll-down-indicator {
+                bottom: 12px;
+            }
+        }
+
+        /* Mobile menu overlay for best UX */
+        .nav-menu.mobile-active {
+            display: flex !important;
+            flex-direction: column;
+            position: absolute;
+            top: 70px;
+            right: 10px;
+            background: rgba(255,255,255,0.98);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            z-index: 2001;
+            gap: 1.5rem;
+            min-width: 180px;
+        }
+        .mobile-menu.active i {
+            color: #667eea;
+        }
+
+        /* Touch-friendly buttons */
+        .btn, .service-btn, .floating-app-btn {
+            touch-action: manipulation;
+        }
+
+        /* Make video background fit mobile screens */
+        .hero-video-bg, .hero-overlay {
+            min-height: 100vh;
+            min-width: 100vw;
+        }
+
+        /* Improve tap targets on mobile */
+        .nav-menu a, .footer-section ul li a, .social-links a {
+            padding: 0.5rem 0.2rem;
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        /* Loading Animation */
+        .loading {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        .loading.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Animate service cards in hero */
+        .hero-visual .service-card {
+            opacity: 0;
+            transform: translateY(40px) scale(0.98);
+            animation: fadeInUp 0.8s cubic-bezier(.23,1.02,.57,.98) forwards;
+        }
+        .hero-visual .service-card:nth-child(1) { animation-delay: 0.1s; }
+        .hero-visual .service-card:nth-child(2) { animation-delay: 0.2s; }
+        .hero-visual .service-card:nth-child(3) { animation-delay: 0.3s; }
+        .hero-visual .service-card:nth-child(4) { animation-delay: 0.4s; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">Border-Mall</div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <video class="hero-video-bg" src="address.webm" autoplay loop muted playsinline></video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title fade-in-up">Your World of Everything, Delivered</h1>
+                <p class="hero-subtitle fade-in-up">
+                    <b>Border-Mall</b> is the next-generation lifestyle super-app. Shop, eat, stay, and thrive – all in one futuristic platform. <br>
+                    <span style="font-size:1.1rem; color:#e0e7ff;">Join the future of convenience, quality, and speed. Experience tomorrow, today.</span>
+                </p>
+                <div class="cta-buttons fade-in-up">
+                    <a href="#services" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i>
+                        Explore Services
+                    </a>
+                    <a href="#download" class="btn btn-secondary">
+                        <i class="fab fa-apple"></i>
+                        Download App
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="service-card" style="animation-delay:0.1s;">
+                    <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=facearea&w=400&h=400&q=80" alt="City Mall">
+                    <i class="fas fa-store-alt"></i>
+                    <h3>City Mall</h3>
+                    <p>All your essentials, fashion, and more in one place.</p>
+                </div>
+                <div class="service-card" style="animation-delay:0.2s;">
+                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=facearea&w=400&h=400&q=80" alt="Food Delivery">
+                    <i class="fas fa-utensils"></i>
+                    <h3>Food Delivery</h3>
+                    <p>Delicious meals, delivered fast and fresh to your door.</p>
+                </div>
+                <div class="service-card" style="animation-delay:0.3s;">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=facearea&w=400&h=400&q=80" alt="Guest House">
+                    <i class="fas fa-bed"></i>
+                    <h3>Guest House</h3>
+                    <p>Book premium rooms and enjoy instant check-in.</p>
+                </div>
+                <div class="service-card" style="animation-delay:0.4s;">
+                    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=facearea&w=400&h=400&q=80" alt="Beauty & Pharmacy">
+                    <i class="fas fa-spa"></i>
+                    <h3>Beauty & Pharmacy</h3>
+                    <p>Top beauty brands and pharmacy products for you.</p>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-down-indicator">
+            <span>Scroll Down</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="services-container">
+            <div class="section-header">
+                <h2 class="section-title loading">Four Worlds, One App</h2>
+                <p class="section-subtitle loading">
+                    Border-Mall is your gateway to a smarter, more connected lifestyle. Explore our core services, each designed to elevate your daily life with convenience, quality, and trust.
+                </p>
+            </div>
+            <div class="services-grid">
+                <!-- City Mall Service -->
+                <div class="service-item loading">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=facearea&w=400&h=400&q=80" alt="City Mall">
+                        <i class="fas fa-store-alt"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">City Mall</h3>
+                        <p class="service-description">
+                            <b>Shop the world, locally.</b> Discover a curated marketplace for fashion, electronics, home essentials, and more. Enjoy exclusive deals, fast delivery, and a seamless shopping experience.
+                        </p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Fashion for Kids, Women & Men</li>
+                            <li><i class="fas fa-check"></i> Matched Clothes, Shoes & Watches</li>
+                            <li><i class="fas fa-check"></i> Jewelry, Accessories & More</li>
+                            <li><i class="fas fa-check"></i> Curated Collections & Brands</li>
+                        </ul>
+                        <button class="service-btn">Shop Now</button>
+                    </div>
+                </div>
+                <!-- Food Delivery Service -->
+                <div class="service-item loading">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=facearea&w=400&h=400&q=80" alt="Food Delivery">
+                        <i class="fas fa-hamburger"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Gourmet at Your Door</h3>
+                        <p class="service-description">
+                            <b>Craving something special?</b> Order from top local restaurants and global cuisines. Enjoy lightning-fast delivery, real-time tracking, and meals made with love.
+                        </p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> 30min Delivery Guarantee</li>
+                            <li><i class="fas fa-check"></i> Fancy & Fast Food Options</li>
+                            <li><i class="fas fa-check"></i> Dietary Preferences Catered</li>
+                            <li><i class="fas fa-check"></i> Real-Time Order Tracking</li>
+                        </ul>
+                        <button class="service-btn">Order Now</button>
+                    </div>
+                </div>
+                <!-- Guest House Service -->
+                <div class="service-item loading">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=facearea&w=400&h=400&q=80" alt="Guest House">
+                        <i class="fas fa-hotel"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Luxury Guest House</h3>
+                        <p class="service-description">
+                            <b>Stay your way.</b> Book premium guest houses and hotels in your area. Enjoy instant booking, flexible check-in, and 24/7 concierge service for a memorable stay.
+                        </p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Instant Room Booking</li>
+                            <li><i class="fas fa-check"></i> 24/7 Concierge & Support</li>
+                            <li><i class="fas fa-check"></i> Premium Amenities</li>
+                            <li><i class="fas fa-check"></i> Exclusive Member Rates</li>
+                        </ul>
+                        <button class="service-btn">Book Stay</button>
+                    </div>
+                </div>
+                <!-- Pharmacy & Beauty Service -->
+                <div class="service-item loading">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=facearea&w=400&h=400&q=80" alt="Beauty & Wellness">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Beauty & Wellness Hub</h3>
+                        <p class="service-description">
+                            <b>Glow inside and out.</b> Shop premium beauty brands and pharmacy essentials for women. Get expert skincare advice and fast, discreet delivery to your door.
+                        </p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Top Beauty & Skincare Brands</li>
+                            <li><i class="fas fa-check"></i> Licensed Pharmacy Products</li>
+                            <li><i class="fas fa-check"></i> Skincare Consultations</li>
+                            <li><i class="fas fa-check"></i> Express Health Delivery</li>
+                        </ul>
+                        <button class="service-btn">Explore Beauty</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about" style="background: #fff; padding: 6rem 2rem;">
+        <div style="max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 3rem;">
+            <div style="flex:1; min-width:280px;">
+                <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=facearea&w=600&q=80" alt="About Border-Mall" style="width:100%; border-radius:24px; box-shadow:0 8px 40px rgba(102,126,234,0.10);">
+            </div>
+            <div style="flex:2; min-width:300px;">
+                <h2 class="section-title" style="margin-bottom:1rem;">Why Border-Mall?</h2>
+                <p class="section-subtitle" style="margin-bottom:2rem;">
+                    <b>Border-Mall</b> is more than just an app – it's a lifestyle revolution. We bring together the best of shopping, food, hospitality, and wellness, all in one seamless platform. Our mission is to empower you to live smarter, shop easier, and enjoy more.
+                </p>
+                <ul style="list-style:none; padding:0; margin:0 0 2rem 0;">
+                    <li style="margin-bottom:1.2rem; display:flex; align-items:center;">
+                        <i class="fas fa-bolt" style="color:#f59e42; font-size:1.5rem; margin-right:1rem;"></i>
+                        <span><b>Lightning Fast</b> – Shop, order, and book in seconds.</span>
+                    </li>
+                    <li style="margin-bottom:1.2rem; display:flex; align-items:center;">
+                        <i class="fas fa-shield-alt" style="color:#667eea; font-size:1.5rem; margin-right:1rem;"></i>
+                        <span><b>Trusted & Secure</b> – Your privacy and safety are our top priority.</span>
+                    </li>
+                    <li style="margin-bottom:1.2rem; display:flex; align-items:center;">
+                        <i class="fas fa-gift" style="color:#10b981; font-size:1.5rem; margin-right:1rem;"></i>
+                        <span><b>Exclusive Deals</b> – Enjoy special offers and member rewards.</span>
+                    </li>
+                    <li style="margin-bottom:1.2rem; display:flex; align-items:center;">
+                        <i class="fas fa-headset" style="color:#764ba2; font-size:1.5rem; margin-right:1rem;"></i>
+                        <span><b>24/7 Support</b> – We're here whenever you need us.</span>
+                    </li>
+                </ul>
+                <a href="#download" class="btn btn-primary" style="margin-top:1rem;">
+                    <i class="fas fa-download"></i> Get the App Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-item loading">
+                <div class="stat-number" data-target="50000">0</div>
+                <div class="stat-label">Happy Customers</div>
+            </div>
+            <div class="stat-item loading">
+                <div class="stat-number" data-target="1000">0</div>
+                <div class="stat-label">Partner Stores</div>
+            </div>
+            <div class="stat-item loading">
+                <div class="stat-number" data-target="500000">0</div>
+                <div class="stat-label">Orders Delivered</div>
+            </div>
+            <div class="stat-item loading">
+                <div class="stat-number" data-target="99">0</div>
+                <div class="stat-label">Satisfaction Rate</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" style="background: #f3f4f6; padding: 5rem 2rem;">
+        <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+            <h2 class="section-title" style="margin-bottom: 1.5rem;">Get Border-Mall App</h2>
+            <p class="section-subtitle" style="margin-bottom: 2.5rem;">Unlock exclusive deals, seamless shopping, and instant delivery. Download Border-Mall now and experience the future of lifestyle services at your fingertips.</p>
+            <div style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
+                <a href="#" style="display:inline-block;">
+                    <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" style="height:60px;">
+                </a>
+                <a href="#" style="display:inline-block;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" style="height:60px;">
+                </a>
+            </div>
+            <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=facearea&w=600&q=80" alt="App Preview" style="margin-top:3rem; max-width:100%; border-radius:30px; box-shadow:0 8px 40px rgba(102,126,234,0.10);">
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact" style="background: #f8fafc; padding: 6rem 2rem;">
+        <div style="max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 3rem;">
+            <div style="flex:1; min-width:300px;">
+                <h2 class="section-title" style="margin-bottom:1rem;">Contact Us</h2>
+                <p class="section-subtitle" style="margin-bottom:2rem;">
+                    Have questions or need help? Our team is always ready to assist you. Reach out and experience our world-class support.
+                </p>
+                <ul style="list-style:none; padding:0;">
+                    <li style="margin-bottom:1rem; display:flex; align-items:center;">
+                        <i class="fas fa-envelope" style="color:#667eea; font-size:1.3rem; margin-right:0.8rem;"></i>
+                        <span>support@border-mall.com</span>
+                    </li>
+                    <li style="margin-bottom:1rem; display:flex; align-items:center;">
+                        <i class="fas fa-phone" style="color:#10b981; font-size:1.3rem; margin-right:0.8rem;"></i>
+                        <span>+1 234 567 8900</span>
+                    </li>
+                    <li style="margin-bottom:1rem; display:flex; align-items:center;">
+                        <i class="fas fa-map-marker-alt" style="color:#f59e42; font-size:1.3rem; margin-right:0.8rem;"></i>
+                        <span>123 Border-Mall Avenue, City, Country</span>
+                    </li>
+                </ul>
+            </div>
+            <div style="flex:2; min-width:300px;">
+                <form style="background:#fff; border-radius:18px; box-shadow:0 8px 32px rgba(102,126,234,0.08); padding:2rem; display:flex; flex-direction:column; gap:1.2rem;">
+                    <input type="text" placeholder="Your Name" required style="padding:1rem; border-radius:8px; border:1px solid #e5e7eb; font-size:1rem;">
+                    <input type="email" placeholder="Your Email" required style="padding:1rem; border-radius:8px; border:1px solid #e5e7eb; font-size:1rem;">
+                    <textarea placeholder="Your Message" rows="4" required style="padding:1rem; border-radius:8px; border:1px solid #e5e7eb; font-size:1rem;"></textarea>
+                    <button type="submit" class="btn btn-primary" style="width:180px; align-self:flex-end;">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Get App Button (Mobile) -->
+    <a href="#download" class="floating-app-btn">
+        <i class="fas fa-download"></i> Get App
+    </a>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Border-Mall</h3>
+                <p>Revolutionizing the way you shop, dine, stay, and care for yourself. Experience the future of integrated lifestyle services.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="#">City Mall</a></li>
+                    <li><a href="#">Food Delivery</a></li>
+                    <li><a href="#">Guest House</a></li>
+                    <li><a href="#">Beauty & Pharmacy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                    <li><a href="#">Partners</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Border-Mall. All rights reserved. | Crafted with ❤️ for exceptional experiences</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = 'none';
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all loading elements
+        document.querySelectorAll('.loading').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Counter animation for statistics
+        function animateCounter(element, target) {
+            let current = 0;
+            const increment = target / 100;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(current).toLocaleString();
+                if (target === 99) {
+                    element.textContent = Math.floor(current) + '%';
+                }
+            }, 20);
+        }
+
+        // Start counter animation when stats section is visible
+        const statsSection = document.querySelector('.stats');
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counters = entry.target.querySelectorAll('.stat-number');
+                    counters.forEach(counter => {
+                        const target = parseInt(counter.getAttribute('data-target'));
+                        animateCounter(counter, target);
+                    });
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        statsObserver.observe(statsSection);
+
+        // Mobile menu toggle (basic implementation)
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navMenu = document.querySelector('.nav-menu');
+        mobileMenu.addEventListener('click', () => {
+            navMenu.classList.toggle('mobile-active');
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu on link click (for best UX)
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('mobile-active');
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // Service buttons interaction
+        document.querySelectorAll('.service-btn').forEach(btn => {
+            btn.addEventListener('click', function (e) {
+                // Add ripple effect
+                const ripple = document.createElement('span');
+                ripple.className = 'ripple';
+                const rect = btn.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+                ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+                btn.appendChild(ripple);
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+    </script>
+</body>
+</html>
