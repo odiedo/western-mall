@@ -3,28 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Western Mall - Your Everything Destination</title>
+    <title>Border-Mall - Your Everything Destination</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
-        :root {
-            --primary-color: #f59e0b;
-            --secondary-color: #f8f9fa;
-            --accent-color: #6c757d;
-            --dark-color: #343a40;
-            --light-color: #ffffff;
-            --border-color: #eaeaea;
-            --shadow-color: rgba(0, 0, 0, 0.06);
-            --shadow-hover: rgba(0, 0, 0, 0.1);
-            --border-radius: 8px;
-            --transition: all 0.25s ease;
-            --primary: #121212;
-            --secondary: #f8f5f0;
-            --accent: #724b06;
-            --light-accent: #f59e0b;
-            --text-light: #f8f5f0;
-            --text-dark: #121212;
-            --dark-gray: #888888;
-        }
         * {
             margin: 0;
             padding: 0;
@@ -34,9 +15,9 @@
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
-            color: var(--text-dark);
+            color: #1f2937;
             overflow-x: hidden;
-            background: var(--primary);
+            background: #0f172a;
         }
 
         /* Header & Navigation */
@@ -46,23 +27,22 @@
             width: 100%;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             z-index: 1000;
-            transition: var(--transition);
-            padding:0;
+            transition: all 0.3s ease;
         }
         .nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 1rem 2rem;
-            max-width: 100%;
+            max-width: 1400px;
             margin: 0 auto;
         }
         .logo {
             font-size: 2rem;
             font-weight: 800;
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent) 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -74,13 +54,13 @@
         }
         .nav-menu a {
             text-decoration: none;
-            color: var(--dark-color);
+            color: #374151;
             font-weight: 500;
             transition: color 0.3s ease;
             position: relative;
         }
         .nav-menu a:hover {
-            color: var(--primary-color);
+            color: #667eea;
         }
         .nav-menu a::after {
             content: '';
@@ -89,7 +69,7 @@
             height: 2px;
             bottom: -5px;
             left: 0;
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent) 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             transition: width 0.3s ease;
         }
         .nav-menu a:hover::after {
@@ -99,26 +79,7 @@
             display: none;
             cursor: pointer;
             font-size: 1.5rem;
-            color: var(--dark-color);
-        }
-        .nav-menu.mobile-active {
-            display: flex !important;
-            flex-direction: column;
-            position: absolute;
-            top: 70px;
-            right: 2rem;
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 8px 32px var(--shadow-color);
-            padding: 1.5rem 2rem;
-            gap: 1.5rem;
-            z-index: 2000;
-            min-width: 180px;
-            animation: fadeInMenu 0.2s;
-        }
-        @keyframes fadeInMenu {
-            from { opacity: 0; transform: translateY(-10px);}
-            to { opacity: 1; transform: translateY(0);}
+            color: #374151;
         }
 
         /* Hero Video Background */
@@ -132,13 +93,12 @@
         .hero-overlay {
             position: absolute;
             top: 0; left: 0; width: 100vw; height: 100vh;
-            background: linear-gradient(120deg, rgba(30,41,59,0.7) 60%, var(--light-accent) 0.3);
+            background: linear-gradient(120deg, rgba(30,41,59,0.7) 60%, rgba(102,126,234,0.3) 100%);
             z-index: 1;
         }
 
         /* Hero Section */
         .hero {
-            padding-top: 10vh;
             min-height: 100vh;
             position: relative;
             display: flex;
@@ -159,8 +119,7 @@
             align-items: center;
         }
         .hero-text {
-            padding-top: 10vh;
-            color: var(--text-light);
+            color: #fff;
             text-shadow: 0 4px 32px rgba(0,0,0,0.25);
         }
         .hero-title {
@@ -169,7 +128,7 @@
             line-height: 1.1;
             margin-bottom: 1.5rem;
             letter-spacing: -2px;
-            background: linear-gradient(90deg, var(--light-color) 60%, var(--light-accent) 100%);
+            background: linear-gradient(90deg, #fff 60%, #a5b4fc 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -179,7 +138,7 @@
             opacity: 0.95;
             margin-bottom: 2.2rem;
             line-height: 1.7;
-            color: var(--secondary-color);
+            color: #e0e7ff;
         }
         .cta-buttons {
             display: flex;
@@ -193,30 +152,30 @@
             font-weight: 600;
             font-size: 1.1rem;
             cursor: pointer;
-            transition: var(--transition);
+            transition: all 0.3s ease;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            box-shadow: 0 8px 32px var(--shadow-color);
+            box-shadow: 0 8px 32px rgba(102,126,234,0.18);
         }
         .btn-primary {
-            background: linear-gradient(90deg, var(--primary-color) 0%, var(--accent) 100%);
-            color: var(--light-color);
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
             border: none;
         }
         .btn-primary:hover {
-            background: linear-gradient(90deg, var(--accent) 0%, var(--primary-color) 100%);
-            color: var(--light-color);
+            background: linear-gradient(90deg, #764ba2 0%, #667eea 100%);
+            color: #fff;
         }
         .btn-secondary {
             background: rgba(255,255,255,0.12);
-            color: var(--light-color);
-            border: 2px solid var(--light-color);
+            color: #fff;
+            border: 2px solid #fff;
         }
         .btn-secondary:hover {
-            background: var(--light-color);
-            color: var(--primary-color);
+            background: #fff;
+            color: #667eea;
         }
 
         /* Glassmorphic Service Cards */
@@ -233,10 +192,10 @@
             border-radius: 22px;
             padding: 2.2rem 1.2rem 1.7rem 1.2rem;
             text-align: center;
-            color: var(--light-color);
-            transition: var(--transition);
+            color: #fff;
+            transition: all 0.3s cubic-bezier(.23,1.02,.57,.98);
             cursor: pointer;
-            box-shadow: 0 8px 32px var(--shadow-color);
+            box-shadow: 0 8px 32px rgba(102,126,234,0.10);
             position: relative;
             overflow: hidden;
         }
@@ -245,21 +204,21 @@
             position: absolute;
             top: -40px; left: -40px;
             width: 80px; height: 80px;
-            background: radial-gradient(circle, var(--light-accent)55 0%, transparent 80%);
+            background: radial-gradient(circle, #a5b4fc55 0%, transparent 80%);
             z-index: 0;
             filter: blur(2px);
         }
         .service-card:hover {
             transform: translateY(-10px) scale(1.05);
             background: rgba(255,255,255,0.22);
-            box-shadow: 0 16px 48px var(--shadow-hover);
+            box-shadow: 0 16px 48px #667eea33;
         }
         .service-card i {
             font-size: 2.7rem;
             margin-bottom: 1rem;
             display: block;
-            color: var(--light-accent);
-            filter: drop-shadow(0 2px 8px var(--primary-color)55);
+            color: #a5b4fc;
+            filter: drop-shadow(0 2px 8px #667eea55);
             animation: iconPulse 2.5s infinite;
         }
         @keyframes iconPulse {
@@ -272,7 +231,7 @@
             object-fit: cover;
             border-radius: 14px;
             margin-bottom: 1rem;
-            box-shadow: 0 4px 16px var(--shadow-color);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
             border: 2px solid #fff3;
         }
         .service-card h3 {
@@ -284,7 +243,7 @@
         .service-card p {
             opacity: 0.92;
             font-size: 0.97rem;
-            color: var(--secondary-color);
+            color: #e0e7ff;
         }
 
         /* Scroll Down Indicator */
@@ -300,14 +259,14 @@
             opacity: 0.85;
         }
         .scroll-down-indicator span {
-            color: var(--light-color);
+            color: #fff;
             font-size: 1rem;
             margin-bottom: 0.2rem;
             letter-spacing: 1px;
         }
         .scroll-down-indicator i {
             font-size: 1.7rem;
-            color: var(--light-color);
+            color: #fff;
             animation: bounceDown 1.2s infinite;
         }
         @keyframes bounceDown {
@@ -315,7 +274,280 @@
             50% { transform: translateY(10px);}
         }
 
+        /* Services Section */
+        .services {
+            padding: 8rem 2rem;
+            background: #f8fafc;
+        }
+        .services-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+        .section-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #6b7280;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+        .service-item {
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .service-item:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.15);
+        }
+        .service-image {
+            height: 250px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .service-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+        }
+        .service-image i {
+            font-size: 4rem;
+            color: white;
+            position: relative;
+            z-index: 2;
+        }
+        .service-image img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 18px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+            margin-bottom: 1rem;
+        }
+        .service-content {
+            padding: 2.5rem;
+        }
+        .service-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
+        .service-description {
+            color: #6b7280;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+        .service-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        .service-features li {
+            padding: 0.5rem 0;
+            color: #374151;
+            display: flex;
+            align-items: center;
+        }
+        .service-features li i {
+            color: #10b981;
+            margin-right: 0.5rem;
+            font-size: 0.9rem;
+        }
+        .service-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .service-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Ripple effect for service buttons */
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            transform: scale(0);
+            animation: ripple-animate 0.6s linear;
+            pointer-events: none;
+            z-index: 10;
+        }
+        @keyframes ripple-animate {
+            to {
+                transform: scale(2.5);
+                opacity: 0;
+            }
+        }
+
+        /* About Section */
+        .about {
+            background: #fff;
+            padding: 6rem 2rem;
+        }
+
+        /* Statistics Section */
+        .stats {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+        }
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+        .stat-item {
+            text-align: center;
+            color: white;
+        }
+        .stat-number {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .stat-label {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Download Section */
+        /* (uses inline styles for layout and images) */
+
+        /* Contact Section */
+        /* (uses inline styles for layout and form) */
+
+        /* Floating Get App Button */
+        .floating-app-btn {
+            display: none;
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 8px 32px rgba(102,126,234,0.18);
+            z-index: 2000;
+            text-decoration: none;
+            align-items: center;
+            gap: 0.7rem;
+            transition: background 0.3s, transform 0.2s;
+        }
+        .floating-app-btn i {
+            margin-right: 0.5rem;
+        }
+        .floating-app-btn:hover {
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+            transform: translateY(-3px) scale(1.05);
+        }
+
+        /* Footer */
+        .footer {
+            background: #1f2937;
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        .footer-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #667eea;
+        }
+        .footer-section ul {
+            list-style: none;
+        }
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+        .footer-section ul li a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer-section ul li a:hover {
+            color: #667eea;
+        }
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 2rem;
+            text-align: center;
+            color: #9ca3af;
+        }
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+        .social-links a {
+            color: #9ca3af;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        .social-links a:hover {
+            color: #667eea;
+            transform: translateY(-3px);
+        }
+
         /* Responsive Design */
+        @media (max-width: 1200px) {
+            .nav, .footer-container, .services-container, .about > div, .stats-container {
+                max-width: 98vw;
+            }
+            .hero-content {
+                max-width: 98vw;
+            }
+        }
         @media (max-width: 900px) {
             .hero-content {
                 grid-template-columns: 1fr;
@@ -377,23 +609,11 @@
                 max-width: 320px;
                 margin: 0 auto;
             }
-            /* HERO CARDS: 2 columns on mobile */
-            .hero-visual {
-                grid-template-columns: 1fr 1fr !important;
-                gap: 1rem;
-            }
-            .service-card {
-                min-width: 0;
-            }
         }
         @media (max-width: 600px) {
             .hero-title { font-size: 2.1rem; }
             .hero-content { padding: 0 0.5rem; }
-            /* HERO CARDS: 2 columns on mobile */
-            .hero-visual {
-                grid-template-columns: 1fr 1fr !important;
-                gap: 0.7rem;
-            }
+            .hero-visual { grid-template-columns: 1fr; }
             .service-card { padding: 1.2rem 0.7rem 1.2rem 0.7rem; }
             .stats-container {
                 grid-template-columns: 1fr;
@@ -415,438 +635,99 @@
             .service-content {
                 padding: 1rem;
             }
-
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
             .about img {
                 max-width: 100%;
             }
             .scroll-down-indicator {
                 bottom: 12px;
             }
-            /* HERO CARDS: 2 columns on very small screens */
-            .hero-visual {
-                grid-template-columns: 1fr 1fr !important;
-                gap: 0.5rem;
-            }
         }
 
-        /* --- Services Section --- */
-        .services {
-            padding: 8rem 2rem;
-            background: var(--secondary-color);
-        }
-        .services-container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        .section-header {
-            text-align: center;
-            margin-bottom: 5rem;
-        }
-        .section-title {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .section-subtitle {
-            font-size: 1.2rem;
-            color: var(--dark-gray);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-        }
-        .service-item {
-            background: var(--light-color);
-            border-radius: 25px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px var(--shadow-color);
-            transition: var(--transition);
-            position: relative;
-        }
-        .service-item:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 30px 80px var(--shadow-hover);
-        }
-        .service-image {
-            height: 250px;
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .service-image::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-        }
-        .service-image i {
-            font-size: 4rem;
-            color: var(--light-color);
-            position: relative;
-            z-index: 2;
-        }
-        .service-image img {
-            width: 80px;
-            height: 80px;
-            object-fit: cover;
-            border-radius: 18px;
-            box-shadow: 0 4px 16px var(--shadow-color);
-            margin-bottom: 1rem;
-        }
-        .service-content {
-            padding: 2.5rem;
-        }
-        .service-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--dark-color);
-        }
-        .service-description {
-            color: var(--dark-gray);
-            margin-bottom: 2rem;
-            line-height: 1.7;
-        }
-        .service-features {
-            list-style: none;
-            margin-bottom: 2rem;
-            padding: 0;
-        }
-        .service-features li {
-            padding: 0.5rem 0;
-            color: var(--dark-color);
-            display: flex;
-            align-items: center;
-        }
-        .service-features li i {
-            color: #10b981;
-            margin-right: 0.5rem;
-            font-size: 0.9rem;
-        }
-        .service-btn {
-            width: 100%;
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent) 100%);
-            color: var(--light-color);
-            border: none;
-            padding: 1rem 2rem;
-            border-radius: 15px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-        .service-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px var(--shadow-hover);
-        }
-
-        /* Ripple effect for service buttons */
-        .ripple {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.5);
-            transform: scale(0);
-            animation: ripple-animate 0.6s linear;
-            pointer-events: none;
-            z-index: 10;
-        }
-        @keyframes ripple-animate {
-            to {
-                transform: scale(2.5);
-                opacity: 0;
-            }
-        }
-
-        /* --- About Section --- */
-        .about {
-            background: var(--light-color);
-            padding: 6rem 2rem;
-        }
-        .about > div {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 3rem;
-        }
-        .about img {
-            width: 100%;
-            border-radius: 24px;
-            box-shadow: 0 8px 40px var(--shadow-color);
-        }
-
-        /* --- Statistics Section --- */
-        .stats {
-            padding: 1rem 2rem;
-            background: linear-gradient(135deg, var(--dark-color) 0%, var(--accent-color) 100%);
-        }
-        .stats-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-        }
-        .stat-item {
-            text-align: center;
-            color: var(--light-color);
-        }
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 0.2rem;
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .stat-label {
-            font-size: 1rem;
-            opacity: 0.9;
-        }
-
-        /* --- Download Section --- */
-        #download {
-            background: var(--secondary-color);
-            padding: 5rem 2rem;
-        }
-        #download .section-title {
-            margin-bottom: 1.5rem;
-        }
-        #download .section-subtitle {
-            margin-bottom: 2.5rem;
-        }
-        #download img[alt="App Preview"] {
-            margin-top: 3rem;
-            max-width: 100%;
-            border-radius: 30px;
-            box-shadow: 0 8px 40px var(--shadow-color);
-        }
-
-        /* --- Contact Section --- */
-        .contact {
-            background: var(--secondary-color);
-            padding: 6rem 2rem;
-        }
-        .contact > div {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 3rem;
-        }
-        .contact form {
-            background: var(--light-color);
-            border-radius: 18px;
-            box-shadow: 0 8px 32px var(--shadow-color);
-            padding: 2rem;
-            display: flex;
+        /* Mobile menu overlay for best UX */
+        .nav-menu.mobile-active {
+            display: flex !important;
             flex-direction: column;
-            gap: 1.2rem;
+            position: absolute;
+            top: 70px;
+            right: 10px;
+            background: rgba(255,255,255,0.98);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            z-index: 2001;
+            gap: 1.5rem;
+            min-width: 180px;
         }
-        .contact input,
-        .contact textarea {
-            padding: 1rem;
-            border-radius: 8px;
-            border: 1px solid #e5e7eb;
-            font-size: 1rem;
-            font-family: inherit;
-        }
-        .contact button[type="submit"] {
-            width: 180px;
-            align-self: flex-end;
+        .mobile-menu.active i {
+            color: #667eea;
         }
 
-        /* --- Footer --- */
-        .footer {
-            background: linear-gradient(120deg, #181c29 60%, var(--accent) 100%);
-            color: var(--light-color);
-            padding: 4rem 2rem 2rem;
-            position: relative;
-            overflow: hidden;
+        /* Touch-friendly buttons */
+        .btn, .service-btn, .floating-app-btn {
+            touch-action: manipulation;
         }
-        .footer::before {
-            content: '';
-            position: absolute;
-            top: -80px; left: -80px;
-            width: 300px; height: 300px;
-            background: radial-gradient(circle, var(--primary-color) 0%, transparent 80%);
-            opacity: 0.18;
-            z-index: 0;
-            filter: blur(10px);
+
+        /* Make video background fit mobile screens */
+        .hero-video-bg, .hero-overlay {
+            min-height: 100vh;
+            min-width: 100vw;
         }
-        .footer-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
-            position: relative;
-            z-index: 1;
+
+        /* Improve tap targets on mobile */
+        .nav-menu a, .footer-section ul li a, .social-links a {
+            padding: 0.5rem 0.2rem;
         }
-        .footer-section {
-            background: rgba(255,255,255,0.03);
-            border-radius: 18px;
-            padding: 2rem 1.5rem;
-            box-shadow: 0 2px 24px 0 var(--shadow-color);
-            transition: box-shadow 0.3s;
-        }
-        .footer-section:hover {
-            box-shadow: 0 8px 32px 0 var(--primary-color);
-        }
-        .footer-section h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary-color);
-            letter-spacing: 1px;
-            text-shadow: 0 2px 12px var(--shadow-hover);
-        }
-        .footer-section ul {
-            list-style: none;
-            padding: 0;
-        }
-        .footer-section ul li {
-            margin-bottom: 0.8rem;
-        }
-        .footer-section ul li a {
-            color: #d1d5db;
-            text-decoration: none;
-            transition: color 0.3s, text-shadow 0.3s;
-        }
-        .footer-section ul li a:hover {
-            color: var(--primary-color);
-            text-shadow: 0 2px 8px var(--primary-color);
-        }
-        .footer-section p {
-            color: #e5e7eb;
-            font-size: 1.05rem;
-            margin-bottom: 1.5rem;
-        }
-        .social-links {
-            display: flex;
-            gap: 1.2rem;
-            justify-content: flex-start;
-            margin-bottom: 1.5rem;
-        }
-        .social-links a {
-            color: #9ca3af;
-            font-size: 1.7rem;
-            transition: color 0.3s, transform 0.2s;
-        }
-        .social-links a:hover {
-            color: var(--primary-color);
-            transform: scale(1.15) translateY(-3px);
-        }
-        .footer-bottom {
-            border-top: 1px solid #23263a;
-            padding-top: 2rem;
-            text-align: center;
-            color: #bfc7d1;
-            font-size: 1.1rem;
-            position: relative;
-            z-index: 1;
-        }
-        .footer-dev-credit {
-            margin-top: 2rem;
-            text-align: center;
-            font-size: 1.08rem;
-            color: #f59e0b;
-            letter-spacing: 1px;
-            background: rgba(255,255,255,0.04);
-            border-radius: 12px;
-            padding: 1.1rem 0.5rem 1.1rem 0.5rem;
-            box-shadow: 0 2px 16px 0 var(--primary-color);
-            font-weight: 600;
-            text-shadow: 0 2px 8px var(--primary-color);
-        }
-        .footer-dev-credit span {
-            color: #fff;
-            font-weight: 700;
-            letter-spacing: 2px;
-        }
-        .footer::after {
-            content: '';
-            position: absolute;
-            right: -120px; bottom: -80px;
-            width: 320px; height: 120px;
-            background: linear-gradient(120deg, var(--primary-color) 0%, transparent 100%);
-            opacity: 0.13;
-            z-index: 0;
-            filter: blur(8px);
-        }
-        .floating-app-btn {
-            display: none;
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
-            background: linear-gradient(90deg, var(--primary-color) 0%, var(--accent) 100%);
-            color: var(--light-color);
-            border-radius: 50px;
-            padding: 0.9rem 1.7rem;
-            font-size: 1.1rem;
-            font-weight: 700;
-            box-shadow: 0 8px 32px var(--shadow-color);
-            z-index: 3000;
-            align-items: center;
-            gap: 0.7rem;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-        .floating-app-btn i {
-            font-size: 1.3rem;
-        }
-        .floating-app-btn:hover {
-            background: linear-gradient(90deg, var(--accent) 0%, var(--primary-color) 100%);
-            color: var(--light-color);
-            transform: scale(1.05);
-        }
-        @media (max-width: 768px) {
-            .floating-app-btn {
-                display: flex;
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
-        /* --- Responsive Footer --- */
-        @media (max-width: 900px) {
-            .footer-container {
-                grid-template-columns: 1fr 1fr;
-                gap: 2rem;
-            }
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
         }
-        @media (max-width: 600px) {
-            .footer-container {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            .footer-section {
-                padding: 1.2rem 0.7rem;
-            }
+        /* Loading Animation */
+        .loading {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
         }
+        .loading.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Animate service cards in hero */
+        .hero-visual .service-card {
+            opacity: 0;
+            transform: translateY(40px) scale(0.98);
+            animation: fadeInUp 0.8s cubic-bezier(.23,1.02,.57,.98) forwards;
+        }
+        .hero-visual .service-card:nth-child(1) { animation-delay: 0.1s; }
+        .hero-visual .service-card:nth-child(2) { animation-delay: 0.2s; }
+        .hero-visual .service-card:nth-child(3) { animation-delay: 0.3s; }
+        .hero-visual .service-card:nth-child(4) { animation-delay: 0.4s; }
     </style>
 </head>
 <body>
     <!-- Header -->
     <header class="header">
         <nav class="nav">
-            <div class="logo">Western Mall</div>
+            <div class="logo">Border-Mall</div>
             <ul class="nav-menu">
-                <li><a href="index.html"  style="color:var(--primary-color);font-weight:700;">Home</a></li>
-                <li><a href="index.html#services">Services</a></li>
-                <li><a href="index.html#about">About</a></li>
-                <li><a href="careers.html">Careers</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="mobile-menu">
                 <i class="fas fa-bars"></i>
@@ -862,8 +743,8 @@
             <div class="hero-text">
                 <h1 class="hero-title fade-in-up">Your World of Everything, Delivered</h1>
                 <p class="hero-subtitle fade-in-up">
-                    <b>Western Mall</b> is the next-generation lifestyle super-app. Shop, eat, stay, and thrive – all in one futuristic platform. <br>
-                    <span style="font-size:1.1rem; color:var(--secondary-color);">Join the future of convenience, quality, and speed. Experience tomorrow, today.</span>
+                    <b>Border-Mall</b> is the next-generation lifestyle super-app. Shop, eat, stay, and thrive – all in one futuristic platform. <br>
+                    <span style="font-size:1.1rem; color:#e0e7ff;">Join the future of convenience, quality, and speed. Experience tomorrow, today.</span>
                 </p>
                 <div class="cta-buttons fade-in-up">
                     <a href="#services" class="btn btn-primary">
@@ -915,7 +796,7 @@
             <div class="section-header">
                 <h2 class="section-title loading">Four Worlds, One App</h2>
                 <p class="section-subtitle loading">
-                    Western Mall is your gateway to a smarter, more connected lifestyle. Explore our core services, each designed to elevate your daily life with convenience, quality, and trust.
+                    Border-Mall is your gateway to a smarter, more connected lifestyle. Explore our core services, each designed to elevate your daily life with convenience, quality, and trust.
                 </p>
             </div>
             <div class="services-grid">
@@ -1007,12 +888,12 @@
     <section class="about" id="about" style="background: #fff; padding: 6rem 2rem;">
         <div style="max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 3rem;">
             <div style="flex:1; min-width:280px;">
-                <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=facearea&w=600&q=80" alt="About Western Mall" style="width:100%; border-radius:24px; box-shadow:0 8px 40px var(--shadow-color);">
+                <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=facearea&w=600&q=80" alt="About Border-Mall" style="width:100%; border-radius:24px; box-shadow:0 8px 40px rgba(102,126,234,0.10);">
             </div>
             <div style="flex:2; min-width:300px;">
-                <h2 class="section-title" style="margin-bottom:1rem;">Why Western Mall?</h2>
+                <h2 class="section-title" style="margin-bottom:1rem;">Why Border-Mall?</h2>
                 <p class="section-subtitle" style="margin-bottom:2rem;">
-                    <b>Western Mall</b> is more than just an app – it's a lifestyle revolution. We bring together the best of shopping, food, hospitality, and wellness, all in one seamless platform. Our mission is to empower you to live smarter, shop easier, and enjoy more.
+                    <b>Border-Mall</b> is more than just an app – it's a lifestyle revolution. We bring together the best of shopping, food, hospitality, and wellness, all in one seamless platform. Our mission is to empower you to live smarter, shop easier, and enjoy more.
                 </p>
                 <ul style="list-style:none; padding:0; margin:0 0 2rem 0;">
                     <li style="margin-bottom:1.2rem; display:flex; align-items:center;">
@@ -1047,6 +928,10 @@
                 <div class="stat-label">Happy Customers</div>
             </div>
             <div class="stat-item loading">
+                <div class="stat-number" data-target="1000">0</div>
+                <div class="stat-label">Partner Stores</div>
+            </div>
+            <div class="stat-item loading">
                 <div class="stat-number" data-target="500000">0</div>
                 <div class="stat-label">Orders Delivered</div>
             </div>
@@ -1058,10 +943,10 @@
     </section>
 
     <!-- Download Section -->
-    <section id="download" style="background: var(--secondary-color); padding: 5rem 2rem;">
+    <section id="download" style="background: #f3f4f6; padding: 5rem 2rem;">
         <div style="max-width: 900px; margin: 0 auto; text-align: center;">
-            <h2 class="section-title" style="margin-bottom: 1.5rem;">Get Western Mall App</h2>
-            <p class="section-subtitle" style="margin-bottom: 2.5rem;">Unlock exclusive deals, seamless shopping, and instant delivery. Download Western Mall now and experience the future of lifestyle services at your fingertips.</p>
+            <h2 class="section-title" style="margin-bottom: 1.5rem;">Get Border-Mall App</h2>
+            <p class="section-subtitle" style="margin-bottom: 2.5rem;">Unlock exclusive deals, seamless shopping, and instant delivery. Download Border-Mall now and experience the future of lifestyle services at your fingertips.</p>
             <div style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
                 <a href="#" style="display:inline-block;">
                     <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" style="height:60px;">
@@ -1075,7 +960,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section class="contact" id="contact" style="background: var(--secondary-color); padding: 6rem 2rem;">
+    <section class="contact" id="contact" style="background: #f8fafc; padding: 6rem 2rem;">
         <div style="max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 3rem;">
             <div style="flex:1; min-width:300px;">
                 <h2 class="section-title" style="margin-bottom:1rem;">Contact Us</h2>
@@ -1084,24 +969,16 @@
                 </p>
                 <ul style="list-style:none; padding:0;">
                     <li style="margin-bottom:1rem; display:flex; align-items:center;">
-                        <i class="fas fa-envelope" style="color:var(--primary-color); font-size:1.3rem; margin-right:0.8rem;"></i>
-                        <span>support@westernmall.com</span>
-                    </li>
-                    <li style="margin-bottom:1rem; display:flex; align-items:center;">
-                        <i class="fas fa-envelope" style="color:var(--primary-color); font-size:1.3rem; margin-right:0.8rem;"></i>
-                        <span>info@westernmall.com</span>
-                    </li>
-                    <li style="margin-bottom:1rem; display:flex; align-items:center;">
-                        <i class="fas fa-envelope" style="color:var(--primary-color); font-size:1.3rem; margin-right:0.8rem;"></i>
-                        <span>event_purchases@westernmall.com</span>
+                        <i class="fas fa-envelope" style="color:#667eea; font-size:1.3rem; margin-right:0.8rem;"></i>
+                        <span>support@border-mall.com</span>
                     </li>
                     <li style="margin-bottom:1rem; display:flex; align-items:center;">
                         <i class="fas fa-phone" style="color:#10b981; font-size:1.3rem; margin-right:0.8rem;"></i>
-                        <span>0743050069</span>
+                        <span>+1 234 567 8900</span>
                     </li>
                     <li style="margin-bottom:1rem; display:flex; align-items:center;">
-                        <i class="fas fa-map-marker-alt" style="color:var(--primary-color); font-size:1.3rem; margin-right:0.8rem;"></i>
-                        <span>123 Western Mall Avenue, City, Country</span>
+                        <i class="fas fa-map-marker-alt" style="color:#f59e42; font-size:1.3rem; margin-right:0.8rem;"></i>
+                        <span>123 Border-Mall Avenue, City, Country</span>
                     </li>
                 </ul>
             </div>
@@ -1126,8 +1003,8 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
-            <div class="footer-section fade-in-up">
-                <h3>Western Mall</h3>
+            <div class="footer-section">
+                <h3>Border-Mall</h3>
                 <p>Revolutionizing the way you shop, dine, stay, and care for yourself. Experience the future of integrated lifestyle services.</p>
                 <div class="social-links">
                     <a href="#"><i class="fab fa-facebook"></i></a>
@@ -1136,7 +1013,16 @@
                     <a href="#"><i class="fab fa-linkedin"></i></a>
                 </div>
             </div>
-            <div class="footer-section fade-in-up">
+            <div class="footer-section">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="#">City Mall</a></li>
+                    <li><a href="#">Food Delivery</a></li>
+                    <li><a href="#">Guest House</a></li>
+                    <li><a href="#">Beauty & Pharmacy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
                 <h3>Company</h3>
                 <ul>
                     <li><a href="#">About Us</a></li>
@@ -1145,7 +1031,7 @@
                     <li><a href="#">Partners</a></li>
                 </ul>
             </div>
-            <div class="footer-section fade-in-up">
+            <div class="footer-section">
                 <h3>Support</h3>
                 <ul>
                     <li><a href="#">Help Center</a></li>
@@ -1155,11 +1041,8 @@
                 </ul>
             </div>
         </div>
-        <div class="footer-dev-credit fade-in-up">
-            Built with <span>❤️</span> by <span>Fun-Corp Developers</span> — powering your digital future.
-        </div>
-        <div class="footer-bottom fade-in">
-            <p>&copy; 2024 Western Mall. All rights reserved.</p>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Border-Mall. All rights reserved. | Crafted with ❤️ for exceptional experiences</p>
         </div>
     </footer>
 
@@ -1275,22 +1158,6 @@
                     ripple.remove();
                 }, 600);
             });
-        });
-        // Animate main sections and cards
-        document.addEventListener('DOMContentLoaded', function() {
-            // Animate service cards
-            document.querySelectorAll('.service-card').forEach((card, idx) => {
-                card.classList.add('fade-in-up');
-                card.style.transitionDelay = (0.1 + idx * 0.1) + 's';
-            });
-            // Animate footer sections
-            document.querySelectorAll('.footer-section').forEach((sec, idx) => {
-                sec.classList.add('fade-in-up');
-                sec.style.transitionDelay = (0.1 + idx * 0.1) + 's';
-            });
-            // Animate footer credit and bottom
-            document.querySelector('.footer-dev-credit').classList.add('fade-in-up');
-            document.querySelector('.footer-bottom').classList.add('fade-in');
         });
     </script>
 </body>

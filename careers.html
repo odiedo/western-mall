@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers at Western Mall</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #f59e0b;
+            --secondary-color: #f8f9fa;
+            --accent-color: #6c757d;
+            --dark-color: #343a40;
+            --light-color: #ffffff;
+            --border-color: #eaeaea;
+            --shadow-color: rgba(0, 0, 0, 0.06);
+            --shadow-hover: rgba(0, 0, 0, 0.1);
+            --border-radius: 8px;
+            --transition: all 0.25s ease;
+            --primary: #121212;
+            --secondary: #f8f5f0;
+            --accent: #724b06;
+            --light-accent: #f59e0b;
+            --text-light: #f8f5f0;
+            --text-dark: #121212;
+            --dark-gray: #888888;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--primary);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background: rgba(255,255,255,0.95);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.2rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-menu a:hover {
+            color: var(--primary-color);
+        }
+        .hero-careers {
+            background: linear-gradient(120deg, #181c29 60%, var(--accent) 100%);
+            color: var(--light-color);
+            padding: 5rem 2rem 3rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-careers h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, var(--light-color) 60%, var(--light-accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-careers p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 2.5rem auto;
+            color: #f8f9fa;
+        }
+        .careers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        .career-card {
+            background: rgba(255,255,255,0.13);
+            backdrop-filter: blur(12px);
+            border: 1.5px solid rgba(255,255,255,0.22);
+            border-radius: 22px;
+            padding: 2.2rem 1.2rem 1.7rem 1.2rem;
+            text-align: center;
+            color: var(--light-color);
+            transition: var(--transition);
+            cursor: pointer;
+            box-shadow: 0 8px 32px var(--shadow-color);
+            position: relative;
+            overflow: hidden;
+        }
+        .career-card:hover {
+            transform: translateY(-10px) scale(1.04);
+            background: rgba(255,255,255,0.22);
+            box-shadow: 0 16px 48px var(--shadow-hover);
+        }
+        .career-card i, .career-card img {
+            font-size: 2.7rem;
+            margin-bottom: 1rem;
+            color: var(--light-accent);
+            filter: drop-shadow(0 2px 8px var(--primary-color)55);
+        }
+        .career-card img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 14px;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 16px var(--shadow-color);
+            border: 2px solid #fff3;
+        }
+        .career-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.4rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        .career-card p {
+            opacity: 0.92;
+            font-size: 0.97rem;
+            color: var(--secondary-color);
+        }
+        .career-card .apply-btn {
+            margin-top: 1.2rem;
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            border: none;
+            background: linear-gradient(90deg, var(--primary-color) 0%, var(--accent) 100%);
+            color: var(--light-color);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .career-card .apply-btn:hover {
+            background: linear-gradient(90deg, var(--accent) 0%, var(--primary-color) 100%);
+        }
+        .benefits-section {
+            background: var(--secondary-color);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        .benefits-section h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .benefits-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .benefit-item {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 8px 32px var(--shadow-color);
+            padding: 2rem 1.5rem;
+            min-width: 220px;
+            max-width: 320px;
+            text-align: center;
+            color: var(--dark-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .benefit-item i {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        .benefit-item h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .benefit-item p {
+            font-size: 0.98rem;
+            color: var(--dark-gray);
+        }
+        .application-section {
+            background: var(--light-color);
+            padding: 4rem 2rem;
+        }
+        .application-section h2 {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .application-form {
+            max-width: 500px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 8px 32px var(--shadow-color);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+        .application-form input,
+        .application-form select,
+        .application-form textarea {
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+        .application-form button[type="submit"] {
+            width: 180px;
+            align-self: flex-end;
+            background: linear-gradient(90deg, var(--primary-color) 0%, var(--accent) 100%);
+            color: var(--light-color);
+            border: none;
+            border-radius: 50px;
+            padding: 0.9rem 1.7rem;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .application-form button[type="submit"]:hover {
+            background: linear-gradient(90deg, var(--accent) 0%, var(--primary-color) 100%);
+        }
+        .footer {
+            background: linear-gradient(120deg, #181c29 60%, var(--accent) 100%);
+            color: var(--light-color);
+            padding: 3rem 2rem 1.5rem;
+            text-align: center;
+        }
+        .footer .logo {
+            font-size: 1.5rem;
+            margin-bottom: 0.7rem;
+        }
+        .footer p {
+            color: #e5e7eb;
+            font-size: 1.05rem;
+        }
+        @media (max-width: 900px) {
+            .careers-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .benefits-list {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+        @media (max-width: 600px) {
+            .header {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+            .careers-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+                padding: 2rem 0.5rem;
+            }
+            .benefits-section {
+                padding: 2rem 0.5rem;
+            }
+            .application-section {
+                padding: 2rem 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">Western Mall</div>
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="careers.html" style="color:var(--primary-color);font-weight:700;">Careers</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </header>
+
+    <section class="hero-careers">
+        <h1>Join the Western Mall Team</h1>
+        <p>
+            Be part of a fast-growing, innovative company that's redefining lifestyle and convenience. Whether you want to deliver smiles, build technology, or support our community, there's a place for you at Western Mall.
+        </p>
+        <img src="https://img.freepik.com/free-vector/career-progress-concept-illustration_114360-7547.jpg?w=700" alt="Careers Hero" style="max-width:340px;width:100%;border-radius:18px;box-shadow:0 8px 32px var(--shadow-color);margin:0 auto 1.5rem auto;display:block;">
+    </section>
+
+    <section class="careers-grid">
+        <div class="career-card">
+            <i class="fas fa-biking"></i>
+            <h3>Bicycle Delivery Rider</h3>
+            <p>Deliver orders quickly and eco-friendly around the city. Flexible hours, great pay, and a healthy lifestyle.</p>
+            <button class="apply-btn" onclick="scrollToForm('Bicycle Delivery Rider')">Apply Now</button>
+        </div>
+        <div class="career-card">
+            <i class="fas fa-motorcycle"></i>
+            <h3>Motorbike Courier</h3>
+            <p>Speed up deliveries with your own motorbike. Join our dynamic courier team and earn per delivery.</p>
+            <button class="apply-btn" onclick="scrollToForm('Motorbike Courier')">Apply Now</button>
+        </div>
+        <div class="career-card">
+            <i class="fas fa-truck"></i>
+            <h3>Van/Truck Driver</h3>
+            <p>Transport goods and bulk orders safely. Enjoy competitive pay and a supportive logistics team.</p>
+            <button class="apply-btn" onclick="scrollToForm('Van/Truck Driver')">Apply Now</button>
+        </div>
+        <div class="career-card">
+            <i class="fas fa-headset"></i>
+            <h3>Customer Support Agent</h3>
+            <p>Help our users with their questions and issues. Friendly environment and growth opportunities.</p>
+            <button class="apply-btn" onclick="scrollToForm('Customer Support Agent')">Apply Now</button>
+        </div>
+        <div class="career-card">
+            <i class="fas fa-laptop-code"></i>
+            <h3>Software Engineer</h3>
+            <p>Build and maintain our super-app. Work with modern tech and a passionate team.</p>
+            <button class="apply-btn" onclick="scrollToForm('Software Engineer')">Apply Now</button>
+        </div>
+        <div class="career-card">
+            <i class="fas fa-store-alt"></i>
+            <h3>Store Manager</h3>
+            <p>Oversee daily operations at our partner stores. Leadership, organization, and people skills required.</p>
+            <button class="apply-btn" onclick="scrollToForm('Store Manager')">Apply Now</button>
+        </div>
+        <div class="career-card">
+            <i class="fas fa-utensils"></i>
+            <h3>Food Service Staff</h3>
+            <p>Join our food partners as a chef, cook, or server. Bring joy to customers with every meal.</p>
+            <button class="apply-btn" onclick="scrollToForm('Food Service Staff')">Apply Now</button>
+        </div>
+        <div class="career-card">
+            <i class="fas fa-user-nurse"></i>
+            <h3>Pharmacy & Wellness Expert</h3>
+            <p>Advise customers on health and beauty products. Licensed professionals preferred.</p>
+            <button class="apply-btn" onclick="scrollToForm('Pharmacy & Wellness Expert')">Apply Now</button>
+        </div>
+        <div class="career-card">
+            <i class="fas fa-users"></i>
+            <h3>Marketing & Community Lead</h3>
+            <p>Grow our brand and engage with the community. Creativity and communication are key.</p>
+            <button class="apply-btn" onclick="scrollToForm('Marketing & Community Lead')">Apply Now</button>
+        </div>
+    </section>
+
+    <section class="benefits-section">
+        <h2>Why Work With Us?</h2>
+        <div class="benefits-list">
+            <div class="benefit-item">
+                <i class="fas fa-clock"></i>
+                <h4>Flexible Schedules</h4>
+                <p>Choose shifts that fit your lifestyle, whether part-time or full-time.</p>
+            </div>
+            <div class="benefit-item">
+                <i class="fas fa-money-bill-wave"></i>
+                <h4>Competitive Pay</h4>
+                <p>Earn above-industry rates, plus bonuses and incentives for top performers.</p>
+            </div>
+            <div class="benefit-item">
+                <i class="fas fa-heart"></i>
+                <h4>Inclusive Culture</h4>
+                <p>We celebrate diversity and foster a supportive, friendly environment.</p>
+            </div>
+            <div class="benefit-item">
+                <i class="fas fa-graduation-cap"></i>
+                <h4>Growth & Learning</h4>
+                <p>Access training, mentorship, and opportunities to advance your career.</p>
+            </div>
+            <div class="benefit-item">
+                <i class="fas fa-medal"></i>
+                <h4>Recognition</h4>
+                <p>We reward hard work and celebrate your achievements as a team.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="application-section" id="application-form">
+        <h2>Apply Now</h2>
+        <form class="application-form" id="careerApplyForm" autocomplete="off">
+            <input type="text" name="name" placeholder="Full Name" required>
+            <input type="email" name="email" placeholder="Email Address" required>
+            <input type="tel" name="phone" placeholder="Phone Number" required>
+            <select name="position" id="positionSelect" required>
+                <option value="">Select Position</option>
+                <option>Bicycle Delivery Rider</option>
+                <option>Motorbike Courier</option>
+                <option>Van/Truck Driver</option>
+                <option>Customer Support Agent</option>
+                <option>Software Engineer</option>
+                <option>Store Manager</option>
+                <option>Food Service Staff</option>
+                <option>Pharmacy & Wellness Expert</option>
+                <option>Marketing & Community Lead</option>
+            </select>
+            <textarea name="message" rows="4" placeholder="Tell us why you're a great fit!" required></textarea>
+            <button type="submit"><i class="fas fa-paper-plane"></i> Submit Application</button>
+        </form>
+        <div id="formSuccess" style="display:none;text-align:center;color:var(--primary-color);margin-top:1.5rem;font-weight:700;">
+            Thank you for applying! We'll be in touch soon.
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="logo">Western Mall</div>
+        <p>&copy; 2024 Western Mall. All rights reserved.</p>
+    </footer>
+    <script>
+        // Scroll to application form and pre-select position
+        function scrollToForm(position) {
+            document.getElementById('positionSelect').value = position;
+            document.getElementById('application-form').scrollIntoView({behavior: 'smooth', block: 'start'});
+        }
+        // Simple form handler (demo only)
+        document.getElementById('careerApplyForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            this.style.display = 'none';
+            document.getElementById('formSuccess').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
